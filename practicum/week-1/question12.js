@@ -23,7 +23,7 @@ var maxBalanceNumber = function(input) {
       count++;
       j++
     }
-    if(input.slice(j,j+count) == "b".repeat(count)){
+    if(count == 0 || input.slice(j,j+count) == "b".repeat(count)){
       alert(input.slice(j,j+count)+ "\n" + "b".repeat(count));
       total++;
     }
