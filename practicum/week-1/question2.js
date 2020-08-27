@@ -14,9 +14,7 @@ Example: input: cookies = [3, 5, 8] , extraCookies = 8
      for(i = 0; i < cookies.length; i++){
              total += cookies[i];
      }
-     console.log("before: " + total);
      total += extraCookies;
-     console.log("after extra: " + total);
      return total % cookies.length == 0;
     
  };
