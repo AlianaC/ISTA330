@@ -14,6 +14,7 @@ output: 3
 var minimalReduction = function(n) {
     var num = 0;
     while (n != 0){
+        num++;
         if (n % 4 == 0){
             n = n / 4;
         }else if(n % 3 == 0){
