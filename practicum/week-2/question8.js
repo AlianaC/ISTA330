@@ -13,5 +13,37 @@ output: 3
 */
 
 var d_integer = function(input) {
+    var d = -1;
+    sort(input);
+    for(let i = 0; i < input.length; i++){
+        let count = 0;
+        let num = input[i];
+        for(let j = i; j < input.length; j++){
+            if(input[j] == num){
+                count++;
+            }
+        }
+        if (num == count){
+            if(d == -1){
+                d = num
+            }else{
+                d = Math.max(d, num);
+            }
+        }
+    }
+    return d;
+};
+
+var sort = function(input) {
+    let temp;
+    for(i = 0; i < input.length-1; i++){
+        for(j = 0; j < input.length-1; j++){
+            if(input[j] > input[j+1]){
+                temp = input[j+1];
+                input[j+1] = input[j];
+                input[j] = temp;
+            }
+        }
+    }
 
 };

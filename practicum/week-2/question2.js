@@ -10,6 +10,16 @@ Example: input: [-12,3,-1,5,-2,1,-7]
           */
 
  var largestSubarray = function(input) {
-     
-    
+    let maxSum = 0;
+
+    for (i = 0; i < input.length; i++) {
+        let currSum = 0;
+        for (j = i; j < input.length; j++) {
+            currSum += input[j];
+            if(maxSum < currSum){
+                maxSum = currSum
+            }
+        }
+    }     
+    return maxSum;
  };
