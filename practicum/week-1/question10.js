@@ -8,9 +8,9 @@ output: 7 - 2 = 5
 */
 
 var maxMinusMin = function(n) {
-    var arr = [];
-    num = n.toString();
-    for(i = 0; i < num.length; i++){
+    let arr = [];
+    let num = n.toString();
+    for(let i = 0; i < num.length; i++){
         arr.push(Number(num[i]));
     }
     sort(arr);

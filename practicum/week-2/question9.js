@@ -19,10 +19,10 @@ var largestGroupsCount = function(n) {
         if(i < 9){
             groups.push([i+1]);
         }else{
-            groups[i % 9].push(i);
+            groups[i % 9].push(i+1);
         }
     }
-
+    console.log(groups);
     let len = groups[0].length;
     let i = 0;
     while(groups[i].length == len){

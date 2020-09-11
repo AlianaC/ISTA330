@@ -10,7 +10,7 @@ var median = function(input) {
     if (input.length % 2 == 0){
         let x = input.length / 2 - 1;
         return (input[x] + input[x + 1]) / 2;
-    }return input[(input.length-1)/2];
+    }return input[(input.length - 1) / 2];
 };
 
 var sort = function(input) {
