@@ -12,4 +12,13 @@ output: true
 
 var isPalindrome = function(s) {
 
+    let regex = /[\W_]/g;
+    s = s.toLowerCase().replace(regex, "");
+    
+    let sBack = "";
+    for(let c = s.length-1; c >= 0; c--){
+        sBack += s[c];
+    }
+
+    return sBack == s;
 };

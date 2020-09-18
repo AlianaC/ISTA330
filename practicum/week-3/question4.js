@@ -19,5 +19,15 @@ Example:
 */
 
 var powerSet = function(input) {
-
+  subsets = [[]];
+  
+  for(let i = 0; i < input.length; i++){
+    let sub_len = subsets.length;
+    for(let j = 0; j < sub_len; j++){
+      let temp = subsets[j].slice(0);
+      temp.push(input[i]);
+      subsets.push(temp);
+    }
+  }
+  return subsets;
 };

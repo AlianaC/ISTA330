@@ -11,5 +11,37 @@ Example:
 */
 
 var isCrossing = function(s) {
+    
+    let coords = [[0,0]];
+
+    // Goes through each direction and creates new coordsinates
+    for(let i = 0; i < s.length; i++){
+        let x = coords[coords.length - 1][0];
+        let y = coords[coords.length - 1][1];
+
+        if(s[i] == "N"){
+            y++;
+        }else if(s[i] == "S"){
+            y--;
+        }else if(s[i] == "E"){
+            x++;
+        }else{
+            x--;
+        }
+        
+        let temp = [x,y];
+
+        // Checks if coordinates have been crossed before
+        for(let j = 0; j < coords.length; j++){
+            if(coords[j][0] == temp[0] && coords[j][1] == temp[1]){
+                return true;
+            }
+        }
+        coords.push(temp);
+
+    }
+
+    return false;
+
 
 };

@@ -9,5 +9,18 @@ output: true
 */
 
 var kStepAway = function(input, k) {
-
+    
+    let zeroCount = 0;
+    for(let i = 0; i < input.length; i++){
+        if(i != 0 && input[i] == 1){
+            if(zeroCount >= k){
+                zeroCount = 0;
+            }else{
+                return false;
+            }
+        }else if(input[i] == 0){
+            zeroCount++;
+        }
+    }
+    return true;
 };
