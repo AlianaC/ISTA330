@@ -83,8 +83,8 @@
         }
         let daffodil = new Flower('Daffodil', 'daffodil.png');
         let cherryblossom = new Flower('Cherry blossom', 'cherryblossom.png');
-        let lily = new Flower('Lily', 'lily.png');
-        let daisy = new Flower('Daisy', 'daisy.png');
+        let lily = new Flower('Lily', 'lily.jpg');
+        let daisy = new Flower('Daisy', 'daisy.jpg');
         let sunflower = new Flower('Sunflower', 'sunflower.png');
         let tulip = new Flower('Tulip', 'tulip.png');
         let rose = new Flower('Rose', 'rose.png');
@@ -100,6 +100,59 @@
             rose,
             waterlily
         ];
+
+        /* Sorts and rearranges the flowers based on
+        the given flower that was clicked. Then calls makeFlowerGrid() 
+        function to update the table */
+        function sortFlowers(flowerImg){
+            flowers.sort(function(a, b) {
+                return (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0;
+            });
+            
+            for(let i = 0; i < flowers.length; i++){
+                if(flowers[i].name == flowerImg.id){
+                    let temp = flowers.slice(0,i)
+                    flowers = flowers.slice(i);
+                    flowers = flowers.concat(temp);
+                }
+            }
+            makeFlowerGrid();
+        }
+
+        /* Creates a table element to add to the flowersDiv in html
+        code above. Table has 4 flowers in a row with their image
+        and name in each cell. Adds event listener to each image. */
+        function makeFlowerGrid(){
+            let flowerDiv = document.getElementById('flowersDiv');
+            flowerDiv.innerHTML = "";
+            let flowerTable = document.createElement("table");
+        
+            let row = flowerTable.insertRow(0);
+            for(let i = 0; i < flowers.length; i++){
+                if(i % 4 == 0 && i != 0){
+                    row = flowerTable.insertRow(-1);
+                }
+                let flowerImg = document.createElement("img");
+                flowerImg.src = "images/" + flowers[i].picture;
+                flowerImg.id = flowers[i].name;
+                flowerImg.addEventListener("click", function() {sortFlowers(flowerImg);});
+
+                let flowerName = document.createElement("p");
+                flowerName.innerText = flowers[i].name;
+                flowerName.style.textAlign = "center";
+                flowerName.style.marginTop = 0;
+
+                let cell = document.createElement("td");
+                cell.appendChild(flowerImg);
+                cell.appendChild(flowerName);
+                row.append(cell);
+            }
+
+            flowerDiv.appendChild(flowerTable);
+       }
+
+
+       makeFlowerGrid()
     </script>
 </body>
 

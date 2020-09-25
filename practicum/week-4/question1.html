@@ -51,6 +51,34 @@
              rose,
              waterlily
        ];
+
+       function makeFlowerGrid(){
+            let flowerDiv = document.getElementById('flowersDiv');
+            let flowerTable = document.createElement("table");
+        
+            let row = flowerTable.insertRow(0);
+            for(let i = 0; i < flowers.length; i++){
+                if(i % 4 == 0 && i != 0){
+                    row = flowerTable.insertRow(-1);
+                }
+                let flowerImg = document.createElement("img");
+                flowerImg.src = "images/" + flowers[i].picture;
+
+                let flowerName = document.createElement("p");
+                flowerName.innerText = flowers[i].name;
+                flowerName.style.textAlign = "center";
+                flowerName.style.marginTop = 0;
+
+                let cell = document.createElement("td");
+                cell.appendChild(flowerImg);
+                cell.appendChild(flowerName);
+                row.append(cell);
+            }
+
+            flowerDiv.appendChild(flowerTable);
+       }
+
+       makeFlowerGrid()
     </script>
 </body>
 </html>
